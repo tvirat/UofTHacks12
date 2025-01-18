@@ -1,19 +1,20 @@
-import Container from 'react-bootstrap/Container';
 import React from "react";
-import Map from "./components/Map.jsx";
-import Header from "./components/Header.jsx";
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
-    <Container fluid className="App">
-        <Header />
-            <p>Map is Below</p>
-            <Container maxWidth="500px" className="Map">
-                <Map />
-            </Container>
-    </Container>
-  )
-
-};
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Router>
+    </>
+  );
+}
 
 export default App;

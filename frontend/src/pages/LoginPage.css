@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("/login-bg2.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* padding: 20px; */
+  border-radius: 10px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 60vh;
+  width: 40vw;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.card-container {
+  width: 100%;
+  height: 20vh;
+  /* border: 1px solid black; */
+  border-radius: 10px 10px 0px 0px;
+  background-image: url("logincard-bg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-heading {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+}
+
+.username-ctr {
+  margin-bottom: 5%;
+}
+
+label {
+  font-size: medium;
+  /* margin-right: ; */
+  margin-top: 3px;
+  background-color: #240348;
+  border-radius: 3px 0px 0px 3px;
+  color: whitesmoke;
+  padding-inline: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+input {
+  align-items: center;
+  border: 1px solid #853da4;
+  padding-inline: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 0px 3px 3px 0px;
+  background-color: #853da4;
+  width: 50%;
+  color: whitesmoke;
+  font-size: medium;
+  margin-left: 0.5px;
+}
+
+button {
+  background-color: #240348;
+  color: whitesmoke;
+  margin-top: 5vh;
+  border-radius: 10px 10px;
+  padding-inline: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
