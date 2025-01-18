@@ -53,7 +53,7 @@ def fetch_data():
         description = i[1]
         longitude = i[2]
         latitude = i[3]
-        tags = i[4]
+        tags = i[4].split(",")
         user = i[5]
         memory_list.append(Memory(description, longitude, latitude, tags, user))
     connection.close()
@@ -61,8 +61,7 @@ def fetch_data():
 
 def main():
     # Your main code here
-    create_table()
-    insert_element(Memory("this is the first entry", 1.0, 1.0,[], "arm"))
+
     slay = fetch_data()
     print(slay[0].description, slay[0].longitude, slay[0].latitude)
 
