@@ -4,7 +4,7 @@ import React from "react";
 import Header from "./components/Header.jsx";
 import MapPage from "./pages/MapPage.jsx";
 import MailPage from "./pages/MailPage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx"; 
 
 const App = () => {
   return (
