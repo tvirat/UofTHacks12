@@ -1,14 +1,16 @@
 import React from "react";
-"use client";
+import Map from "./Map.jsx";
+import Header from "./components/Header.jsx";
 
-import MapSetup from "./Map.jsx";
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <p>Map is Below</p>
+      <Map />
+    </div>
+  )
 
-function App() {
-    return (
-        <div>
-            <MapSetup />
-        </div>
-    );
-}
+};
 
 export default App;
