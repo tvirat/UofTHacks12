@@ -259,6 +259,7 @@ export default function MapSetup() {
         <APIProvider apiKey={"AIzaSyA2dcOrY0N80JXxMyCvkTC4LutaC21w5VE"}>
             <div style={{height: "100vh", width: "100vw"}}>
                 <Map
+                    center={position}
                      mapId={"ef577be4298356b7"}
                      options={mapOptions}
                 >
