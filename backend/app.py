@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template
+import SendDatatToFE
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -12,6 +13,12 @@ def home():
 @app.route("/about")
 def about():
     return "This is the about page."
+
+@app.route('/api/memories', methods=['GET'])
+def get_memories():
+    memory_json = SendDatatToFE.fetch_memory_data_as_json()
+    print(jsonify(memory_json))
+    return jsonify(memory_json)
 
 # Run the app
 if __name__ == "__main__":

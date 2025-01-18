@@ -1,14 +1,19 @@
+import Container from 'react-bootstrap/Container';
 import React from "react";
-"use client";
+import Map from "./components/Map.jsx";
+import Header from "./components/Header.jsx";
 
-import MapSetup from "./Map.jsx";
+const App = () => {
+  return (
+    <Container fluid className="App">
+        <Header />
+            <p>Map is Below</p>
+            <Container maxWidth="500px" className="Map">
+                <Map />
+            </Container>
+    </Container>
+  )
 
-function App() {
-    return (
-        <div>
-            <MapSetup />
-        </div>
-    );
-}
+};
 
 export default App;
