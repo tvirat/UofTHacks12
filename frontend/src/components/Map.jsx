@@ -1,279 +1,65 @@
-"use client";
+import React, { useEffect, useRef } from "react";
 
-import { useState } from "react";
-import {
-    APIProvider,
-    Map,
-    AdvancedMarker,
-    Pin,
-    InfoWindow,
-} from "@vis.gl/react-google-maps";
+const Map = () => {
+  const mapRef = useRef(null);
 
-export default function MapSetup() {
-
-    const position = { lat: 53.54, lng: 10 };
-    const [open, setOpen] = useState(false);
-    const snazzyMapStyle = [
-        {
-            "featureType": "all",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                },
-                {
-                    "color": "#f49f53"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#f9ddc5"
-                },
-                {
-                    "lightness": "-7"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.business",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#645c20"
-                },
-                {
-                    "lightness": "38"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.government",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#9e5916"
-                },
-                {
-                    "lightness": "46"
-                },
-                {
-                    "gamma": "1"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.medical",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "visibility": "off"
-                },
-                {
-                    "color": "#813033"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "38"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.park",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#645c20"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "39"
-                },
-                {
-                    "gamma": "1.00"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.school",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#a95521"
-                },
-                {
-                    "lightness": "35"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.sports_complex",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#9e5916"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "32"
-                },
-                {
-                    "gamma": "1.00"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#813033"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "43"
-                },
-                {
-                    "gamma": "1.00"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "color": "#f19f53"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "16"
-                },
-                {
-                    "gamma": "1.00"
-                },
-                {
-                    "weight": "1.30"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry.stroke",
-            "stylers": [
-                {
-                    "color": "#f19f53"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "-10"
-                },
-                {
-                    "gamma": "1.00"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "lightness": "38"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.line",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#813033"
-                },
-                {
-                    "saturation": "0"
-                },
-                {
-                    "lightness": "43"
-                },
-                {
-                    "gamma": "1.00"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.station",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#1994bf"
-                },
-                {
-                    "saturation": "-69"
-                },
-                {
-                    "lightness": "43"
-                },
-                {
-                    "gamma": "0.99"
-                }
-            ]
-        }
+  useEffect(() => {
+    const retroStyle = [
+      { elementType: "geometry", stylers: [{ color: "#ebe3cd" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1e6" }] },
+      {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#c9b2a6" }],
+      },
+      {
+        featureType: "administrative.land_parcel",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#dcd2be" }],
+      },
+      {
+        featureType: "landscape.natural",
+        elementType: "geometry",
+        stylers: [{ color: "#dfd2ae" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#f5f1e6" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry.fill",
+        stylers: [{ color: "#b9d3c2" }],
+      },
     ];
 
     const mapOptions = {
-        styles: snazzyMapStyle,
-        gestureHandling: "auto",
-        scrollwheel: true,
-        zoomControl: true,
-        mapTypeControl: false
+      center: { lat: 43.6532, lng: -79.3832 }, // Toronto
+      zoom: 10,
+      minZoom: 5,
+      maxZoom: 15,
+      styles: retroStyle,
+      gestureHandling: "auto", // Allow dragging/panning
+      scrollwheel: true, // Allow scroll zoom
     };
 
-    return (
-        <APIProvider apiKey={"AIzaSyA2dcOrY0N80JXxMyCvkTC4LutaC21w5VE"}>
-            <div style={{height: "100vh", width: "100vw"}}>
-                <Map
-                     mapId={"ef577be4298356b7"}
-                     options={mapOptions}
-                >
-                    <AdvancedMarker position={position} onClick={() => setOpen(true)}>
-                    <Pin
-                        background={"black"}
-                        borderColor={"black"}
-                        glyphColor={"white"}
-                    />
-                    </AdvancedMarker>
-                    {open && (<InfoWindow position={position} onCloseClick={() => setOpen(false)}>
-                        <p style={{color: "black"}}>I visited Hamburg bla bla bla...</p>
-                    </InfoWindow>)}
-                </Map>
-            </div>
-        </APIProvider>
-    );
-}
+    // Initialize the map
+    if (mapRef.current) {
+      new window.google.maps.Map(mapRef.current, mapOptions);
+    }
+  }, []);
+
+  return (
+    <div
+      ref={mapRef}
+      style={{
+        height: "100vh",
+        width: "100%",
+      }}
+    ></div>
+  );
+};
+
+export default Map;

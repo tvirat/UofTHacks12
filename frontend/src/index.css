@@ -6,6 +6,6 @@
   border-bottom: 1px solid #ddd;
 }
 
-.Map {
-  
+#map {
+  height: 100%;
 }
