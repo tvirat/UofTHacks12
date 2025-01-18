@@ -256,7 +256,7 @@ export default function MapSetup() {
     };
 
     return (
-        <APIProvider apiKey={APIKEYHERE}>
+        <APIProvider apiKey={"AIzaSyA2dcOrY0N80JXxMyCvkTC4LutaC21w5VE"}>
             <div style={{height: "100vh", width: "100vw"}}>
                 <Map
                      mapId={"ef577be4298356b7"}

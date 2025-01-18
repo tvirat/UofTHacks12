@@ -1,9 +1,14 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+
 const Header = () => {
   return (
-    <h1>Mapping Journal</h1>
+    <Navbar bg="light" sticky="top" className="Header">
+        <Container>
+            <Navbar.Brand>Mapping Journal</Navbar.Brand>
+        </Container>
+    </Navbar>
   );
-  
 };
-
 export default Header;
