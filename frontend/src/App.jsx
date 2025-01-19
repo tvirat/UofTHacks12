@@ -1,8 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import React from "react";
-import React, {useEffect, useState} from "react";
-import Map from "./components/Map.jsx";
 import Header from "./components/Header.jsx";
 import MapPage from "./pages/MapPage.jsx";
 import MailPage from "./pages/MailPage.jsx";

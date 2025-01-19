@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Marker from '.components/Markers';
 
 const Map = () => {
   const mapRef = useRef(null);
@@ -46,42 +47,11 @@ const Map = () => {
     };
 
     // Initialize the map
-    let map;
     if (mapRef.current) {
       new window.google.maps.Map(mapRef.current, mapOptions);
     }
 
-
-    //Add pins to the map
-    pins.forEach((pin) => {
-      new window.google.maps.Marker({
-        position: { lat: pin.latitude, lng: pin.longitude },
-        map: map,
-        title: pin.description, // Tooltip when hovering over the marker
-        content: pin.description,
-        gmpClickable:true,
-      });
-
-      //map.addListener("center_changed", () => { 
-        //window.setTimeout(() => { 
-          //map.panTo(marker.position);
-        //}, 3000);
-      //});
-      
-      //marker.addListener("click", ({ domEvent, latLng }) => {
-        //const { target } = domEvent;
-    
-        //map.setZoom(8);
-        //map.setCenter(marker.position);
-    
-        //window.google.maps.infoWindow.close();
-        //window.google.maps.infoWindow.setContent(marker.title);
-        //window.google.maps.infoWindow.open(marker.map, marker);
-      //});
-      
-    });
-
-  }, []); // Dependency array ensures pins are updated when changed
+  }, []);
 
   return (
     <div ref={mapRef} style={{ height: "100vh", width: "100%", }}></div>
