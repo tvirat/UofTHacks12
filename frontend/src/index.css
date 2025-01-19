@@ -1,9 +1,43 @@
+
 .App {
   padding: 0;
+  background-color: #F4F1E5;
+}
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 .Header {
+  font-size: 50px;
+  color: #493830;
+  background-color: #EBE3CD;
   border-bottom: 1px solid #ddd;
-  font-size: 30px;
+}
+
+.Sidebar {
+  width: 120px;
+  margin: 5px;
+  position: sticky; 
+  top: 62px;                      /*sets correct vertical position w respect to the header */
+  align-self: flex-start;         /*aligns the sidebar with the top of the stack component */
+  align-items: start;             /*aligns the children component of the sidebar to the left */
+  font-size: 20px;
+}
+
+.Sidebar .nav-item {
+  width: 100;
+}
+
+.Sidebar a {
+  color:#493830;
+}
+
+.Sidebar a:hover {
+  background-color: #EBE3CD;
+}
+
+.Sidebar .nav-item .active {
+  background-color: #DFD2AE;
 }
 

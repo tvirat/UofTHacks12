@@ -4,8 +4,9 @@ import Map from '../components/Map';
 
 const MapPage = () => {
     return (
-        <Container maxWidth="1000px">
+        <Container>
             <Body sidebar>
+                <h1>Public Map Sharing Space</h1>
                 <p>This map below holds the stories of people daily perspectives of life.</p>
             </Body>
             <Map />

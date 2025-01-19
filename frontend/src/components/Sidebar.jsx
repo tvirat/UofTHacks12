@@ -6,10 +6,10 @@ const Sidebar = () => {
     return (
         <Navbar stick="top" className="flex-column Sidebar">
             <Nav.Item>
-                <Nav.Link as={NavLink} to="/MapPage" end>Map Stories</Nav.Link>
+                <Nav.Link as={NavLink} to="/" end>Map Stories</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link as={NavLink} to="/MailPage" end>Mailing</Nav.Link>
+                <Nav.Link as={NavLink} to="/mail" end>Mailing</Nav.Link>
             </Nav.Item>
         </Navbar>
     );

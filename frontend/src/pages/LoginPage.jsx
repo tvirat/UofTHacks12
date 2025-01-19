@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import './LoginPage.css';
+import Container from 'react-bootstrap/Container';
+// import "./LoginPage.module.css";
 
 const LoginPage = () => {
   useEffect(() => {
@@ -9,23 +10,27 @@ const LoginPage = () => {
     };
   }, []);
   return (
-    <div className="login-form">
+    <Container className="login-form">
       <div className="card-container"></div>
       <h1 className="login-heading">User Login</h1>
       <form>
-        <div className="username-ctr">
-          <label htmlFor="username">Username: </label>
-          <input type="text" id="username" name="username" />
+        <div className="user-pass">
+          <div className="user">
+            <label htmlFor="username">Username: </label>
+            <input type="text" id="username" name="username" />
+          </div>
           <br />
+          <div class="pass">
+            <label htmlFor="password">Password: </label>
+            <input type="password" id="password" name="password" />
+            <br />
+          </div>
         </div>
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input type="password" id="password" name="password" />
-          <br />
+        <div className="button">
+          <button type="submit">Sign In</button>
         </div>
-        <button type="submit">Sign In</button>
       </form>
-    </div>
+    </Container>
   );
 };
 export default LoginPage;

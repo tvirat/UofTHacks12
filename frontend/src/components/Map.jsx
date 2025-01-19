@@ -52,8 +52,23 @@ const Map = () => {
   }, []);
 
   return (
-    <div ref={mapRef} style={{ height: "100vh", width: "100%", }}></div>
-    
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <div
+        ref={mapRef}
+        style={{
+          height: "90vh",
+          width: "78%",
+          border: "2px solid black",
+        }}
+      ></div>
+    </div>
   );
 };
 
