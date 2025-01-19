@@ -51,32 +51,33 @@ const Map = () => {
       new window.google.maps.Map(mapRef.current, mapOptions);
     }
 
+
     //Add pins to the map
     pins.forEach((pin) => {
       new window.google.maps.Marker({
         position: { lat: pin.latitude, lng: pin.longitude },
         map: map,
         title: pin.description, // Tooltip when hovering over the marker
-        content: pin.element,
+        content: pin.description,
         gmpClickable:true,
       });
 
-      map.addListener("center_changed", () => { 
-        window.setTimeout(() => { 
-          map.panTo(marker.position);
-        }, 3000);
-      });
+      //map.addListener("center_changed", () => { 
+        //window.setTimeout(() => { 
+          //map.panTo(marker.position);
+        //}, 3000);
+      //});
       
-      marker.addListener("click", ({ domEvent, latLng }) => {
-        const { target } = domEvent;
+      //marker.addListener("click", ({ domEvent, latLng }) => {
+        //const { target } = domEvent;
     
-        map.setZoom(8);
-        map.setCenter(marker.position);
+        //map.setZoom(8);
+        //map.setCenter(marker.position);
     
-        infoWindow.close();
-        infoWindow.setContent(marker.title);
-        infoWindow.open(marker.map, marker);
-      });
+        //window.google.maps.infoWindow.close();
+        //window.google.maps.infoWindow.setContent(marker.title);
+        //window.google.maps.infoWindow.open(marker.map, marker);
+      //});
       
     });
 
