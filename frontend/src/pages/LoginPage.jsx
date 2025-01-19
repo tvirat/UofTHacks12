@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './LoginPage.css';
+// import './LoginPage.css';
 
 const LoginPage = () => {
   useEffect(() => {
