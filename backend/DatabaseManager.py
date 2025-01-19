@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 from MemoryPin import Memory
 
 
@@ -58,6 +59,17 @@ def fetch_data():
         memory_list.append(Memory(description, longitude, latitude, tags, user))
     connection.close()
     return memory_list
+
+
+def filter_data(row, tag):
+    
+    connection, cursor = connection_make()
+    query=f"SELECT TAGS FROM database/uofthacks WHERE {row} = ?;"
+    cursor.execute(query, (tag,))
+    data = pd.DataFrame(cursor.fetchall())
+    data.row = [x[0] for x in cursor.description]
+    connection.close()
+    return data
 
 def main():
     # Your main code here

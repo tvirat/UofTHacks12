@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Marker from '.components/Markers';
 
 const Map = () => {
   const mapRef = useRef(null);
@@ -49,6 +50,7 @@ const Map = () => {
     if (mapRef.current) {
       new window.google.maps.Map(mapRef.current, mapOptions);
     }
+
   }, []);
 
   return (
