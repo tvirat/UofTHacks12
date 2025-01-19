@@ -1,7 +1,5 @@
-// Create Google Map pin with functionality (zooming in & description)
-function initMap(latitude, longitude, title) {
+function initPin(latitude, longitude, title) {
   const location = { lat: latitude, lng: longitude };
-  const map = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA2dcOrY0N80JXxMyCvkTC4LutaC21w5VE";
 
   const marker = new google.maps.marker.AdvancedMarkerElement({
     position: location,
@@ -11,11 +9,7 @@ function initMap(latitude, longitude, title) {
     gmpClickable:true,
   });
 
-  map.addListener("center_changed", () => {
-    window.setTimeout(() => {
-      map.panTo(marker.position);
-    }, 3000);
-  });
+  map.addListener("center_changed", () => { window.setTimeout(() => { map.panTo(marker.position);}, 3000);});
 
   marker.addListener("click", ({ domEvent, latLng }) => {
     const { target } = domEvent;
@@ -28,3 +22,64 @@ function initMap(latitude, longitude, title) {
     infoWindow.open(marker.map, marker);
   });
 }
+
+
+
+const Map = ({ pins }) => {
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    const retroStyle = [
+      { elementType: "geometry", stylers: [{ color: "#ebe3cd" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1e6" }] },
+      {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#c9b2a6" }],
+      },
+      {
+        featureType: "administrative.land_parcel",
+        elementType: "geometry.stroke",
+        stylers: [{ color: "#dcd2be" }],
+      },
+      {
+        featureType: "landscape.natural",
+        elementType: "geometry",
+        stylers: [{ color: "#dfd2ae" }],
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{ color: "#f5f1e6" }],
+      },
+      {
+        featureType: "water",
+        elementType: "geometry.fill",
+        stylers: [{ color: "#b9d3c2" }],
+      },
+    ];
+
+    const mapOptions = {
+      center: { lat: 43.6532, lng: -79.3832 }, // Toronto
+      zoom: 10,
+      minZoom: 5,
+      maxZoom: 15,
+      styles: retroStyle,
+      gestureHandling: "auto", // Allow dragging/panning
+      scrollwheel: true, // Allow scroll zoom
+    };
+
+    // Initialize the map
+    let map;
+    if (mapRef.current) {
+      map = new window.google.maps.Map(mapRef.current, mapOptions);
+
+
+    }
+  }, [pins]); // Dependency array ensures pins are updated when changed
+
+  return <div ref={mapRef} style={{ height: "100vh", width: "100%" }}></div>;
+};
+
+export default Map;
