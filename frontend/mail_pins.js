@@ -20,7 +20,7 @@ function initMap(latitude, longitude, title) {
   marker.addListener("click", ({ domEvent, latLng }) => {
     const { target } = domEvent;
 
-    map.setZoom(10);
+    map.setZoom(8);
     map.setCenter(marker.position);
 
     infoWindow.close();
