@@ -46,39 +46,39 @@ const Map = () => {
     };
 
     // Initialize the map
-    //let map;
+    let map;
     if (mapRef.current) {
       new window.google.maps.Map(mapRef.current, mapOptions);
     }
 
-    // Add pins to the map
-    //pins.forEach((pin) => {
-      //new window.google.maps.marker.AdvancedMarkerElement({
-        //position: { lat: pin.latitude, lng: pin.longitude },
-        //map: map,
-        //title: pin.description, // Tooltip when hovering over the marker
-        //content: pin.element,
-        //gmpClickable:true,
-      //});
+    //Add pins to the map
+    pins.forEach((pin) => {
+      new window.google.maps.Marker({
+        position: { lat: pin.latitude, lng: pin.longitude },
+        map: map,
+        title: pin.description, // Tooltip when hovering over the marker
+        content: pin.element,
+        gmpClickable:true,
+      });
 
-      //map.addListener("center_changed", () => { 
-        //window.setTimeout(() => { 
-          //map.panTo(marker.position);
-        //}, 3000);
-      //});
+      map.addListener("center_changed", () => { 
+        window.setTimeout(() => { 
+          map.panTo(marker.position);
+        }, 3000);
+      });
       
-      //marker.addListener("click", ({ domEvent, latLng }) => {
-        //const { target } = domEvent;
+      marker.addListener("click", ({ domEvent, latLng }) => {
+        const { target } = domEvent;
     
-        //map.setZoom(8);
-        //map.setCenter(marker.position);
+        map.setZoom(8);
+        map.setCenter(marker.position);
     
-        //infoWindow.close();
-        //infoWindow.setContent(marker.title);
-        //infoWindow.open(marker.map, marker);
-      //});
+        infoWindow.close();
+        infoWindow.setContent(marker.title);
+        infoWindow.open(marker.map, marker);
+      });
       
-    //});
+    });
 
   }, []); // Dependency array ensures pins are updated when changed
 
