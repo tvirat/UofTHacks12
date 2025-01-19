@@ -46,7 +46,7 @@ const Map = () => {
     };
 
     // Initialize the map
-    let map;
+    //let map;
     if (mapRef.current) {
       new window.google.maps.Map(mapRef.current, mapOptions);
     }
