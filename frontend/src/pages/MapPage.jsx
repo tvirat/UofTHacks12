@@ -1,7 +1,7 @@
 import Body from '../components/Body';
 import Container from 'react-bootstrap/Container';
 import Map from '../components/Map';
-import initMap from '../frontend/mail_pins.js';
+import initMap from '../mail_pins.js';
 
 const MapPage = () => {
     return (
