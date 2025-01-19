@@ -6,8 +6,13 @@ const MapPage = () => {
     return (
         <Container>
             <Body sidebar>
-                <h1>Public Map Sharing Space</h1>
-                <p>This map below holds the stories of people daily perspectives of life.</p>
+                <h1>Percepts Public Mapping</h1>
+                <p>Interact international, gaining perspective of other peoples everyday lives.
+                    <br />
+                    Stories, hardship, achievement, and memories can be stored on the map periodically.
+                    <br />
+                    View countless of perspectives around the world.
+                </p>
             </Body>
             <Map />
         </Container>

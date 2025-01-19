@@ -41,3 +41,18 @@
   background-color: #DFD2AE;
 }
 
+.InputField {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.custom-button {
+  background-color: #599190;
+  border-color: #599190;
+}
+
+.custom-link {
+  text-decoration: 'none';
+  color: #599190;
+}
+
