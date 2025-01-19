@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-//import initPin from '../mail_pins.js';
 
 const Map = () => {
   const mapRef = useRef(null);
@@ -53,35 +52,35 @@ const Map = () => {
     }
 
     // Add pins to the map
-    pins.forEach((pin) => {
-      new window.google.maps.marker.AdvancedMarkerElement({
-        position: { lat: pin.latitude, lng: pin.longitude },
-        map: map,
-        title: pin.description, // Tooltip when hovering over the marker
+    //pins.forEach((pin) => {
+      //new window.google.maps.marker.AdvancedMarkerElement({
+        //position: { lat: pin.latitude, lng: pin.longitude },
+        //map: map,
+        //title: pin.description, // Tooltip when hovering over the marker
         //content: pin.element,
-        gmpClickable:true,
-      });
+        //gmpClickable:true,
+      //});
 
-      map.addListener("center_changed", () => { 
-        window.setTimeout(() => { 
-          map.panTo(marker.position);
-        }, 3000);
-      });
+      //map.addListener("center_changed", () => { 
+        //window.setTimeout(() => { 
+          //map.panTo(marker.position);
+        //}, 3000);
+      //});
       
-      marker.addListener("click", ({ domEvent, latLng }) => {
-        const { target } = domEvent;
+      //marker.addListener("click", ({ domEvent, latLng }) => {
+        //const { target } = domEvent;
     
-        map.setZoom(8);
-        map.setCenter(marker.position);
+        //map.setZoom(8);
+        //map.setCenter(marker.position);
     
-        infoWindow.close();
-        infoWindow.setContent(marker.title);
-        infoWindow.open(marker.map, marker);
-      });
+        //infoWindow.close();
+        //infoWindow.setContent(marker.title);
+        //infoWindow.open(marker.map, marker);
+      //});
       
-    });
+    //});
 
-  }, [pins]); // Dependency array ensures pins are updated when changed
+  }, []); // Dependency array ensures pins are updated when changed
 
   return (
     <div ref={mapRef} style={{ height: "100vh", width: "100%", }}></div>
