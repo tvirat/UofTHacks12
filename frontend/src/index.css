@@ -4,8 +4,6 @@
 
 .Header {
   border-bottom: 1px solid #ddd;
+  font-size: 30px;
 }
 
-#map {
-  height: 100%;
-}

@@ -1,11 +1,16 @@
 import Body from '../components/Body';
+import Container from 'react-bootstrap/Container';
+import Map from '../components/Map';
 
 const MapPage = () => {
     return (
-        <Body sidebar>
-            <h1>Explore</h1>
-            <p>TODO</p>
-        </Body>
+        <Container maxWidth="1000px">
+            <Body sidebar>
+                <p>This map below holds the stories of people daily perspectives of life.</p>
+            </Body>
+            <Map />
+        </Container>
+
     );
 } 
 
